@@ -1,0 +1,19 @@
+// Place all the styles related to the Conversations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.midashi {
+  background-color: #faf0e6;
+  height: 50px;
+}
+
+.other {
+  
+  margin: 2em auto;  
+  width: 50%; /*幅の調節*/
+  color: #666666; /*文字色*/
+  background-color: #f7f7f7; /*背景色*/
+  border: 2px solid #ccc; /*線の太さ・色*/
+  border-radius: 8px; 
+}

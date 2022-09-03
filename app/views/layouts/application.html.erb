@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Prolear</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  </head>
+  
+
+  <%= yield %>
+  <nav class="cp_sidebarmenu">
+    <ul>
+    <% if user_signed_in? %>
+    <li><%= link_to "トップ", root_path %></li>
+    <li><%= link_to "会話", conversations_path %></li>
+    <li><%= link_to "ユーザー一覧", users_path %></li>
+    <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+    <li><%= link_to "マイページ", user_path(current_user.id) %></li>
+    <li><%= link_to "Eメール or パスワード変更", edit_user_registration_path %></li>
+    <li><%= link_to "マッチング", matching_users_path %></li>
+      <% if current_user.name.present? %>
+        <li><%= link_to "情報変更", edit_user_path(current_user.id) %></li>
+      <% else%>
+        <li><%= link_to "情報設定", enter_users_path %></li>
+      <% end %>
+    <% else %>
+    <li><%= link_to "新規登録", new_user_registration_path %></li>
+    <li><%= link_to "ログイン", new_user_session_path %></li>
+    <% end %>
+    </ul>
+    </nav>
+
+    
+  
+</html>

@@ -1,0 +1,34 @@
+<div class = "user">
+  <h2 class = "us" id="top">ユーザー</h2>
+</div>
+
+  
+
+
+  <% @users.each do |user| %>
+  <% if user.present? %>
+    <% if user.id != current_user.id %>
+      <li>
+        <div class="item">
+          <% if user.name.present? %>
+          
+          <p class="pict">
+          <% if user.image && user.image.url %>
+            <%= image_tag user.image.url %></p>
+          <% end %>
+          <p class="link3"><%= link_to user.name, user_path(user.id) %></p>
+          <% end %>
+            <div class = "link4">
+            <%= render 'follow_form', user: user %>
+            </div>
+        </div>
+
+      </li>
+    
+    <% end %>
+  <% end %>
+  <% end %>
+ 
+
+
+<div id="page_top"><a href="#"></a></div>
